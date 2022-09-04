@@ -4,7 +4,7 @@ import { CommonRoutesConfig } from "./common/common.routes.config";
 import { MeetingRoutes } from "./meeting/meeting.routes.config";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const routes: CommonRoutesConfig[] = [];
 
 app.use(express.json());
