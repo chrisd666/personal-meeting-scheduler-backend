@@ -33,6 +33,10 @@ class MeetingService {
 
   async list() {
     return await this.model.findMany({
+      orderBy: {
+        endsAt: "desc",
+      },
+      take: 20,
       include: {
         guests: true,
       },
