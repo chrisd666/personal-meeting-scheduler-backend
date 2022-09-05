@@ -13,11 +13,7 @@ app.use(cors());
 
 routes.push(new MeetingRoutes(app));
 
-app.use(
-  express.static(
-    path.join(__dirname, "..", "personal-meeting-scheduler-frontend", "build")
-  )
-);
+app.use(express.static(path.join(__dirname, "client")));
 
 app.listen(port, () => {
   routes.forEach((route) => {
