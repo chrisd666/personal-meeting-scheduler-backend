@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { CommonRoutesConfig } from "./common/common.routes.config";
 import { MeetingRoutes } from "./meeting/meeting.routes.config";
 
@@ -12,9 +13,11 @@ app.use(cors());
 
 routes.push(new MeetingRoutes(app));
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to the meeting scheduler server");
-});
+app.use(
+  express.static(
+    path.join(__dirname, "..", "personal-meeting-scheduler-frontend", "build")
+  )
+);
 
 app.listen(port, () => {
   routes.forEach((route) => {
