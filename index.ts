@@ -13,11 +13,9 @@ app.use(cors());
 
 routes.push(new MeetingRoutes(app));
 
-app.use(
-  express.static(
-    path.join(__dirname, "..", "personal-meeting-scheduler-frontend", "build")
-  )
-);
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to the meeting scheduler server");
+});
 
 app.listen(port, () => {
   routes.forEach((route) => {
