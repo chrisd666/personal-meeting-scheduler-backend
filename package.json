@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
+    "start": "nodemon",
     "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js",
+    "start:prod": "npm run build && node build/index.js",
     "prod": "tsc && node --unhandled-rejections=strict ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
